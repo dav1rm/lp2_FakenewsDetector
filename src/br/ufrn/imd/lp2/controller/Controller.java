@@ -1,6 +1,11 @@
-package br.ufrn.imd.lp2.domain;
+package br.ufrn.imd.lp2.controller;
 
 import java.util.ArrayList;
+
+import br.ufrn.imd.lp2.model.Fakenews;
+import br.ufrn.imd.lp2.model.News;
+import br.ufrn.imd.lp2.model.Quote;
+import br.ufrn.imd.lp2.model.WebScrapper;
 
 public class Controller {
 	private final int MIN_CHARACTERS = 3;
@@ -26,6 +31,7 @@ public class Controller {
 				fn.setQuote(quote);
 				//fn.setHash(hash);
 				fn.setErrs(errs);
+				quotesSet.add(fn);
 			}else 
 			{
 				News n = new News();
@@ -33,12 +39,9 @@ public class Controller {
 				//n.setHash(hash);
 				n.setNewsAccuracy(quoteAccuracy);
 				//n.setSource();
+				quotesSet.add(n);
 				
 			}
-			// webscraping vai retornar a accuracy e as fontes
-			// o webscraping vai lançar excecoes 
-			
-			
 		}
 	}
 	
@@ -50,8 +53,13 @@ public class Controller {
 	public String standardizeQuote(String quote) 
 	{
 		// lowercase
-		// retirar palavras com menos de MIN_CHARACTERS char
+		quote.toLowerCase();
+		// remover caracteres especiais
+		
+		// retirar palavras com menos de MIN_CHARACTERS
+			//String fquote = removeUnqualifiedWords(quote);
 		// por em ordem alfabética
 		return quote;
 	}
+
 }

@@ -1,4 +1,4 @@
-package br.ufrn.imd.lp2.domain;
+package br.ufrn.imd.lp2.model;
 
 import java.util.ArrayList;
 

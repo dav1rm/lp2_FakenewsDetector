@@ -1,4 +1,4 @@
-package br.ufrn.imd.lp2.domain;
+package br.ufrn.imd.lp2.model;
 
 public abstract class Quote {
 	private String quote;	//quote armazena o texto original pego no dataset
