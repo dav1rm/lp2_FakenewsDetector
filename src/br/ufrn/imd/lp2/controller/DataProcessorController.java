@@ -1,67 +1,67 @@
 package br.ufrn.imd.lp2.controller;
 
+import java.text.Normalizer;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
 public class DataProcessorController {
-	private final int MIN_CHARACTERS;
-	DataProcessorController(int min_char)
-	{
+	private int MIN_CHARACTERS;
+
+	DataProcessorController(int min_char) {
 		this.MIN_CHARACTERS = min_char;
 	}
-	
-	/**
-	 *	Função responsável por remover as palavras que tem menos caracteres que MIN_CHARACTERS
-	 * @param quote contém o texto
-	 * @return string filtrada
-	 **/
-	public String removeUnqualifiedWords(String quote) 
-	{
-		String [] splitedQuote = quote.split(" ");
-		for(String word : splitedQuote) 
-		{
-			if(word.length() < this.MIN_CHARACTERS) 
-			{
-				//remove word
+
+	public String removeUnqualifiedWords(String content) {
+		// Removes punctuation		
+		String str = content.replaceAll("\\p{P}", "");
+		// Transform in array of words		
+		String[] splitedArray = str.split(" ");
+		
+		StringBuilder builder = new StringBuilder();
+		for (String word : splitedArray) {			
+			if (word.length() > this.MIN_CHARACTERS) {
+				builder.append(word+" ");
 			}
 		}
-		return quote;
-	}
 	
-	/**
-	 *	Função responsável por remover os caracteres especiais, como (&$#@*) e também os acentos.
-	 * @param quote contém o texto
-	 * @return string sem caracteres especiais e sem acentos
-	 **/
-	public String removeSpecialCharacters(String quote) 
-	{
-		return quote;
+		return builder.toString().trim();
 	}
-	
-	/**
-	 *	Função responsável por remover palavras repitidas
-	 * @param quote contém o texto
-	 * @return string em que cada palavra aparece uma única vez
-	 **/
-	public String removeRepeatedWords(String quote) 
-	{
-		return quote;
+
+	public String removeSpecialCharacters(String content) {
+		content = Normalizer.normalize(content, Normalizer.Form.NFD).replaceAll("[^a-zA-Z\\s]", "");			
+
+		return content.toLowerCase();
 	}
-	
-	/**
-	 *	Função responsável por estabelecer a ordem alfabética nas palavras dentro da string.
-	 * @param quote contém o texto
-	 * @return string ordenada
-	 **/
-	public String alphabeticalSort(String quote) 
-	{
-		return quote;
+
+
+	public String removeRepeatedWords(String content) {
+		String[] splitedArray = content.split(" ");
+		
+		// hash_set to saves the words adds
+		Set<String> saved_words = new HashSet<String>();
+		StringBuilder builder = new StringBuilder();
+		
+		for (String word : splitedArray) {
+			if (!saved_words.contains(word)) {
+				builder.append(word+" ");
+				saved_words.add(word);
+			}
+		}
+		
+		return builder.toString().trim();
 	}
-	
-	/**
-	 *	Função responsável por gerar um hash único para cada string
-	 * @param quote contém o texto
-	 * @return string hash referente ao quote
-	 **/
-	public String generateHash(String quote) 
-	{
-		return "";
+
+	public String alphabeticalSort(String content) {
+		String[] splitedArray = content.split(" ");
+		Arrays.sort(splitedArray);
+		
+		StringBuilder builder = new StringBuilder();
+		
+		for (String word : splitedArray) {
+			builder.append(word+" ");
+		}
+
+		return builder.toString().trim();
 	}
 }
