@@ -13,6 +13,8 @@ public class MainController {
 		result = processor.removeRepeatedWords(result);
 		result = processor.alphabeticalSort(result);
 		System.out.println("depois: "+result);
+		
+		System.out.println("hash: "+processor.generateHash(result));
 	}
 
 }
