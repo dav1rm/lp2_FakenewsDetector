@@ -1,23 +1,17 @@
 package br.ufrn.imd.lp2.model;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 
-/**
- * NO MODEL, ESTAMOS MANTENDO SOMENTE GETS E SETS
- * */
 public class DataStorage {
-	private ArrayList <Quote> dataStorage;
 
-	public ArrayList <Quote> getDataStorage() {
-		return dataStorage;
+	private HashMap<String, Quote> storage;
+
+	public HashMap<String, Quote> getStorage() {
+		return storage;
 	}
 
-	public void setDataStorage(ArrayList <Quote> dataStorage) {
-		this.dataStorage = dataStorage;
+	public void setDataStorage(HashMap<String, Quote> storage) {
+		this.storage = storage;
 	}
-	
-	public void addToDataStorage(Quote quote) 
-	{
-		this.dataStorage.add(quote);
-	}
+
 }

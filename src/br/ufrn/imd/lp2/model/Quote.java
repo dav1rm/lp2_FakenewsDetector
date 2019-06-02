@@ -1,12 +1,40 @@
 package br.ufrn.imd.lp2.model;
 
-public abstract class Quote {
-	private String quote;	//quote armazena o texto original pego no dataset
-	private String hash;	//hash armazena a versão em hash do texto
+public class Quote {
+	private int id;
+	private String data;
+	private String url;
+	private String content;
+	private String treatedContent;
 	
-	public String getQuote() {	return quote;	}
-	public String getHash() {	return hash;	}
-	
-	public void setQuote(String text) {	this.quote = text;	}
-	public void setHash(String hash) {	this.hash = hash;	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getData() {
+		return data;
+	}
+	public void setData(String data) {
+		this.data = data;
+	}
+	public String getUrl() {
+		return url;
+	}
+	public void setUrl(String url) {
+		this.url = url;
+	}
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
+	}
+	public String getTreatedContent() {
+		return treatedContent;
+	}
+	public void setTreatedContent(String treatedContent) {
+		this.treatedContent = treatedContent;
+	}
 }
