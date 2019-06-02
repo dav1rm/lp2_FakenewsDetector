@@ -16,7 +16,14 @@ public class DataProcessorController {
 	DataProcessorController(int min_char) {
 		this.MIN_CHARACTERS = min_char;
 	}
-
+	public String stardardizeQuote(String content) 
+	{
+		content = this.removeUnqualifiedWords(content);
+		content = this.removeSpecialCharacters(content);
+		content = this.removeRepeatedWords(content);
+		content = this.alphabeticalSort(content);
+		return content;
+	}
 	public String removeUnqualifiedWords(String content) {
 		// Removes punctuation
 		String str = content.replaceAll("\\p{P}", "");

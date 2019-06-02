@@ -1,23 +1,23 @@
 package br.ufrn.imd.lp2.model;
 
 public class Quote {
-	private int id;
-	private String data;
+	private String id;
+	private String date;
 	private String url;
 	private String content;
 	private String treatedContent;
 	
-	public int getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
-	public String getData() {
-		return data;
+	public String getDate() {
+		return date;
 	}
-	public void setData(String data) {
-		this.data = data;
+	public void setDate(String date) {
+		this.date = date;
 	}
 	public String getUrl() {
 		return url;
