@@ -11,7 +11,15 @@ public class DataStorageController {
 	}
 
 	public void showAll() {
-		System.out.println(this.dataStorage.getStorage());
+		System.out.println("---------------------------------------");
+		for (Quote quote : this.dataStorage.getStorage().values()) {
+			System.out.println("ID: "+quote.getId());
+			System.out.println("Conteúdo: "+quote.getContent());
+			System.out.println("Conteúdo tratado: "+quote.getTreatedContent());
+			System.out.println("Data de criação: "+quote.getDate());
+			System.out.println("URL: "+quote.getUrl());
+			System.out.println("---------------------------------------");
+		}
 	}
 
 	public void getByHash(String hash) {
@@ -20,9 +28,7 @@ public class DataStorageController {
 
 	public void addToDataStorage(Quote quote, String hash) {
 		this.dataStorage.addToDataStorage(quote, hash);
-		
+
 	}
-	
-	
 
 }

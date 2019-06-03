@@ -22,7 +22,7 @@ public class Controller {
 			String hash = DP.generateHash(quote.getTreatedContent());
 			DS.addToDataStorage(quote, hash);
 		}
-		//DS.showAll();
+		DS.showAll();
 		
 	}
 
