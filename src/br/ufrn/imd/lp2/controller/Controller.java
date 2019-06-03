@@ -1,7 +1,5 @@
 package br.ufrn.imd.lp2.controller;
 
-import java.io.IOException;
-
 import br.ufrn.imd.lp2.model.Quote;
 
 public class Controller {
@@ -18,11 +16,9 @@ public class Controller {
 		{
 			quote.setTreatedContent(DP.stardardizeQuote(quote.getContent()));
 			String hash = DP.generateHash(quote.getTreatedContent());
-			//DS.addToDataStorage(quote, hash);
+			DS.addToDataStorage(quote, hash);
 		}
-		//DS.showAll();
-		
-		
+		DS.showAll();
 	}
 
 }

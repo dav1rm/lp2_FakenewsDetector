@@ -1,6 +1,5 @@
 package br.ufrn.imd.lp2.controller;
 
-
 import br.ufrn.imd.lp2.model.DataStorage;
 import br.ufrn.imd.lp2.model.Quote;
 
@@ -20,7 +19,8 @@ public class DataStorageController {
 	}
 
 	public void addToDataStorage(Quote quote, String hash) {
-		this.dataStorage.getStorage().put(hash, quote);
+		this.dataStorage.addToDataStorage(quote, hash);
+		
 	}
 	
 	
