@@ -11,6 +11,10 @@ public class Controller {
 		DataProcessorController DP = new DataProcessorController(3);
 
 		DataStorageController DS = new DataStorageController();
+
+		SimilarityAnalysisController SA = new SimilarityAnalysisController();
+		
+		System.out.println(SA.jaroWinkler("PARMIGIANI", "MIGAN"));
 		
 		for(Quote quote : FR.quotes) 
 		{
@@ -18,7 +22,8 @@ public class Controller {
 			String hash = DP.generateHash(quote.getTreatedContent());
 			DS.addToDataStorage(quote, hash);
 		}
-		DS.showAll();
+		//DS.showAll();
+		
 	}
 
 }
