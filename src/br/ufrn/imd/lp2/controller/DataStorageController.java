@@ -1,5 +1,8 @@
 package br.ufrn.imd.lp2.controller;
 
+import java.util.Collection;
+import java.util.HashMap;
+
 import br.ufrn.imd.lp2.model.DataStorage;
 import br.ufrn.imd.lp2.model.Quote;
 
@@ -22,8 +25,12 @@ public class DataStorageController {
 		}
 	}
 
-	public void getByHash(String hash) {
-		this.dataStorage.getStorage().get(hash);
+	public Quote getByHash(String hash) {
+		return this.dataStorage.getStorage().get(hash);
+	}
+	
+	public Collection<Quote> getQuotes() {
+		return this.dataStorage.getStorage().values();
 	}
 
 	public void addToDataStorage(Quote quote, String hash) {
