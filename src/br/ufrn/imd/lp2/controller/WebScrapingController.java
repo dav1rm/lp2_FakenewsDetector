@@ -34,11 +34,16 @@ public class WebScrapingController {
 			}
 			quote.setDate(created_at);
 			
-			// Get the paragraphs 
-			Elements paragraphs = doc.select("p");
+			// Get the paragraphs p:not(:has(span,iframe,a,label,input))
+			Elements paragraphs1 = doc.select("h1,h2");
+			Elements paragraphs = doc.select("h1,h2,p:not(:has(span,iframe,a,label,input)), p:root");
+			System.out.println(paragraphs1);
+			
 			for (Element paragraph : paragraphs) {
-				if (paragraph.hasText() && paragraph.text().length() > 50) {
-					content = content.concat(paragraph.text()+" ");
+//				System.out.println(paragraph.is("h2"));
+				if (paragraph.hasText() && paragraph.text().length() > 108) {
+//					System.out.println(paragraph);
+//					content = content.concat(paragraph.text()+" ");
 				}
 			}
 			quote.setContent(content);
