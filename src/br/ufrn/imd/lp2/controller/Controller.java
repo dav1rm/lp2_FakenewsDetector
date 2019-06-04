@@ -30,15 +30,22 @@ public class Controller {
 		
 		
 		SimilarityAnalysisController SA = new SimilarityAnalysisController();
+		
 		double percentage = 0;
 		
 		//search by hash
 		if (DS.getByHash(hash) == null) {
 			// if not found, aply similarity analytises			
+			System.out.println(new_quote.getTreatedContent());
+			System.out.println("");
 			for(Quote quote : DS.getQuotes()) 
 			{
-				if(SA.jaroWinkler(new_quote.getTreatedContent(), quote.getTreatedContent()) > percentage) {
-					percentage = SA.jaroWinkler(new_quote.getTreatedContent(), quote.getTreatedContent());
+				
+				if(SA.cosineSimilarity(new_quote.getTreatedContent(), quote.getTreatedContent()) > percentage) {
+
+					System.out.println(quote.getTreatedContent());
+					System.out.println("");
+					percentage = SA.cosineSimilarity(new_quote.getTreatedContent(), quote.getTreatedContent());
 				}
 			}
 			
