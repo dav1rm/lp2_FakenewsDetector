@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: #2B2E8A;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrn.imd.lp2.controller.HomeController">
+   <children>
+      <Text fill="WHITE" layoutX="71.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Informe a sua notícia e adivinharemos se é Fake News" wrappingWidth="458.0">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="71.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Grau de similaridade:" wrappingWidth="458.0" />
+      <Slider fx:id="similarity" layoutX="138.0" layoutY="152.0" onDragDetected="#handleChangeSlider" prefHeight="16.0" prefWidth="391.0" value="75.0" />
+      <TextField fx:id="url" layoutX="71.0" layoutY="209.0" prefHeight="25.0" prefWidth="458.0" promptText="Ex: http://www.google.com/noticia-tals" />
+      <TextArea layoutX="71.0" layoutY="277.0" prefHeight="125.0" prefWidth="458.0" promptText="Digite o texto da notícia" />
+      <Text fill="WHITE" layoutX="71.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Digite o link (URL) de uma notícia" wrappingWidth="458.0" />
+      <Text fill="WHITE" layoutX="71.0" layoutY="266.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ou digite o texto de uma noticia" wrappingWidth="458.0" />
+      <Button fx:id="verifyButton" layoutX="204.0" layoutY="420.0" mnemonicParsing="false" onAction="#handleSubmit" prefHeight="43.0" prefWidth="193.0" style="-fx-background-color: #f34235;" text="Verificar" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Button>
+      <Text fx:id="percentage" fill="#eee1e1" layoutX="71.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="75%" textAlignment="RIGHT" wrappingWidth="43.0">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

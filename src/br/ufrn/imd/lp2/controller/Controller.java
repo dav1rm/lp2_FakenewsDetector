@@ -21,7 +21,6 @@ public class Controller {
 			String hash = DP.generateHash(quote.getTreatedContent());
 			DS.addToDataStorage(quote, hash);
 		}
-//		DS.showAll();
 
 		WebScrapingController WS = new WebScrapingController();
 		ArrayList<String> data = WS
@@ -46,12 +45,12 @@ public class Controller {
 //			System.out.println("hash: "+hash+ "\ntext: "+treatedText);
 
 			// search by hash
-//			if (DS.getByHash(hash) != null) {
-//
-//				System.out.println("Sua notícia é 100% uma FAKE NEWS!!!");
-//				return;
-//
-//			}
+			if (DS.getByHash(hash) != null) {
+
+				System.out.println("Sua notícia é 100% uma FAKE NEWS!!!");
+				return;
+
+			}
 			// if not found, aply similarity analytises
 			for (Quote quote : DS.getQuotes()) {
 				if (LD.score(treatedText, quote.getTreatedContent()) > percentage) {
@@ -63,13 +62,8 @@ public class Controller {
 		}
 		
 		System.out.printf("Sua notícia é %.1f%% semelhante a uma FAKE NEWS!!!\n", percentage * 100);
-		System.out.println("trecho: " + treatedText);
-		System.out.println("fake news: " + a.getTreatedContent());
-		
-//		new_quote.setTreatedContent(DP.stardardizeQuote(new_quote.getContent()));
-//		String hash = DP.generateHash(new_quote.getTreatedContent());
-//
-//		System.out.println("hash: "+hash + "\nconteudo: "+new_quote.getTreatedContent());
+		System.out.println("trecho: " + txt);
+		System.out.println("fake news: " + a.getContent());
 
 	}
 
