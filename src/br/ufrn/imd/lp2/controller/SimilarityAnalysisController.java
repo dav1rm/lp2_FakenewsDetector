@@ -1,9 +1,9 @@
-package br.ufrn.imd.lp2.controller;
+package src.br.ufrn.imd.lp2.controller;
 
 import java.util.HashMap;
 import java.util.Set;
 
-import br.ufrn.imd.lp2.model.Quote;
+import src.br.ufrn.imd.lp2.model.Quote;
 
 public class SimilarityAnalysisController {
 	
@@ -17,7 +17,7 @@ public class SimilarityAnalysisController {
 		return 0;
 	}
 	
-	//FUNÇÃO jaroWinkler RETIRADA DE http://www.edneiparmigiani.com.br/similaridade-entre-strings-com-jaro-winkler/
+	//FUNï¿½ï¿½O jaroWinkler RETIRADA DE http://www.edneiparmigiani.com.br/similaridade-entre-strings-com-jaro-winkler/
 	public double jaroWinkler(String str1, String str2) 
 	{
 	 	int str1_len = str1.length();
@@ -67,7 +67,6 @@ public class SimilarityAnalysisController {
                 + (((double) matches - transpositions / 2.0) / matches)) / 3.0;
 	}
 	
-	//https://commons.apache.org/sandbox/commons-text/jacoco/org.apache.commons.text.similarity/CosineSimilarity.java.html
 	public double cosineSimilarity(String str1, String str2) 
 	{
 		if(str1.equals("") || str2.equals("")) 

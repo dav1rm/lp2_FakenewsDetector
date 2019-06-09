@@ -1,10 +1,10 @@
-package br.ufrn.imd.lp2.controller;
+package src.br.ufrn.imd.lp2.controller;
 
 import java.util.Collection;
 import java.util.HashMap;
 
-import br.ufrn.imd.lp2.model.DataStorage;
-import br.ufrn.imd.lp2.model.Quote;
+import src.br.ufrn.imd.lp2.model.DataStorage;
+import src.br.ufrn.imd.lp2.model.Quote;
 
 public class DataStorageController {
 	private DataStorage dataStorage;

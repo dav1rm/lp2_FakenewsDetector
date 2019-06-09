@@ -1,4 +1,4 @@
-package br.ufrn.imd.lp2.controller;
+package src.br.ufrn.imd.lp2.controller;
 
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
