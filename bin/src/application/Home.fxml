@@ -16,7 +16,7 @@
       <Text fill="WHITE" layoutX="71.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Grau de similaridade:" wrappingWidth="458.0" />
       <Slider fx:id="similarity" layoutX="138.0" layoutY="152.0" prefHeight="16.0" prefWidth="391.0" value="75.0" majorTickUnit="50.0" max="100.0" showTickLabels="true" showTickMarks="true" />
       <TextField fx:id="url" layoutX="71.0" layoutY="209.0" prefHeight="25.0" prefWidth="458.0" promptText="Ex: http://www.google.com/noticia-tals" />
-      <TextArea fx:id="text_new" layoutX="71.0" layoutY="277.0" prefHeight="125.0" prefWidth="458.0" promptText="Digite o texto da notícia" />
+      <TextArea fx:id="textNew" layoutX="71.0" layoutY="277.0" prefHeight="125.0" prefWidth="458.0" promptText="Digite o texto da notícia" />
       <Text fill="WHITE" layoutX="71.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Digite o link (URL) de uma notícia" wrappingWidth="458.0" />
       <Text fill="WHITE" layoutX="71.0" layoutY="266.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ou digite o texto de uma noticia" wrappingWidth="458.0" />
       <Button fx:id="verifyButton" layoutX="204.0" layoutY="420.0" mnemonicParsing="false" onAction="#handleSubmit" prefHeight="43.0" prefWidth="193.0" style="-fx-background-color: #f34235;" text="Verificar" textAlignment="CENTER" textFill="WHITE">
@@ -24,7 +24,7 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </Button>
-      <Text fx:id="percentage" fill="#eee1e1" layoutX="71.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="75%" textAlignment="RIGHT" wrappingWidth="43.0">
+      <Text fx:id="percentage" fill="#eee1e1" layoutX="71.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="75" textAlignment="RIGHT" wrappingWidth="43.0">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>

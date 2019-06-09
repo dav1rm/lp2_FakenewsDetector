@@ -24,42 +24,58 @@ public class HomeController implements Initializable {
 	@FXML
 	private Button verifyButton;
 	@FXML
-	private TextArea text_new;
+	private TextArea textNew;
 	
+	private MainController MC;
 	
 	@FXML
 	private void handleSubmit(ActionEvent event) {
-		System.out.println("acionou evento");
+		System.out.println("Começando a análise");
+		Double analysisResult = null;
+		
+		
 		if(!url.getText().trim().isEmpty()) 
 		{
-			//SE O USUÁRIO TIVER DIGITADO URL
-			System.out.println(url.getText());
+			//SE O USUÁRIO TIVER DIGITADO URL, IREMOS REALIZAR WEBSCRAPING
+			analysisResult = this.MC.analyze(true, url.getText(), "teste");
+			
 		}else 
 		{
-			if(!text_new.getText().trim().isEmpty())
+			if(!textNew.getText().trim().isEmpty())
 			{
-				//SE O USUÁRIO TIVER DIGITADO TEXTO
-				System.out.println(text_new.getText());
+				//SE O USUÁRIO TIVER DIGITADO TEXTO, IREMOS ANALISAR SOMENTE PARA AQUELE TEXTO
+				analysisResult = this.MC.analyze(false, textNew.getText(), "teste");
 			}
 		}
-		System.out.println();
+		
+		//CASO TENHA SIDO SETADO VALOR DE RESULTADO
+		if(analysisResult != null) 
+		{
+			//SE O RESULTADO FOR MAIOR  QUE O PADRÃO CONFIGURADO PELO USUÁRIO, É FAKENEWS
+			if(analysisResult*100 > Double.parseDouble(percentage.getText())) 
+			{
+				System.out.println(analysisResult);
+				System.out.println("Sua notícia é Falsa.");
+			}else 
+			{
+				System.out.println(analysisResult);
+				System.out.println("Sua notícia é Verdadeira. ");
+			}
+		}else 
+		{
+			System.out.println("Algo deu errado com a comparação");
+		}
+		
 	}
 	
-	@FXML
-	private void handleChangeSlider(ActionEvent event) {
-		System.out.println("alterou slider");
-		//similarity.valueProperty().addListener((observable, oldValue, newValue) -> {
-		//	percentage.setText(Double.toString(newValue.intValue()));
-
-		//});
-	}
-
+	
+	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
+		this.MC = new MainController();
 		similarity.valueProperty().addListener((observable, oldValue, newValue) -> {
 			percentage.setText(Double.toString(newValue.intValue()));
-			System.out.println(percentage.getText());
 		});
 
 	}
