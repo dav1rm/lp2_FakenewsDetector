@@ -1,11 +1,11 @@
-package src.br.ufrn.imd.lp2.controller;
+package br.ufrn.imd.lp2.controller;
 
 import java.util.ArrayList;
 
-import src.br.ufrn.imd.lp2.model.ConsineSimilarity;
-import src.br.ufrn.imd.lp2.model.JaroWinklerStrategy;
-import src.br.ufrn.imd.lp2.model.LevenshteinDistanceStrategy;
-import src.br.ufrn.imd.lp2.model.Quote;
+import br.ufrn.imd.lp2.model.ConsineSimilarity;
+import br.ufrn.imd.lp2.model.JaroWinklerStrategy;
+import br.ufrn.imd.lp2.model.LevenshteinDistanceStrategy;
+import br.ufrn.imd.lp2.model.Quote;
 
 public class Controller {
 

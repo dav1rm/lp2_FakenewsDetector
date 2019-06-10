@@ -1,4 +1,4 @@
-package src.br.ufrn.imd.lp2.controller;
+package br.ufrn.imd.lp2.controller;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;

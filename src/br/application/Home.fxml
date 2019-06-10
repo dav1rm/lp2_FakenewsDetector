@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: #2B2E8A;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.br.ufrn.imd.lp2.controller.HomeController">
+<AnchorPane prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: #2B2E8A;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrn.imd.lp2.controller.HomeController">
    <children>
       <Text fill="WHITE" layoutX="71.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Informe a sua notícia e adivinharemos se é Fake News" wrappingWidth="458.0">
          <font>

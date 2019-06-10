@@ -1,9 +1,9 @@
-package src.br.ufrn.imd.lp2.controller;
+package br.ufrn.imd.lp2.controller;
 
 import java.util.HashMap;
 import java.util.Set;
 
-import src.br.ufrn.imd.lp2.model.Quote;
+import br.ufrn.imd.lp2.model.Quote;
 
 public class SimilarityAnalysisController {
 	

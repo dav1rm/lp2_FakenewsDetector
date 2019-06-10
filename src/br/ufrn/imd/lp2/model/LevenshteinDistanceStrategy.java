@@ -1,4 +1,4 @@
-package src.br.ufrn.imd.lp2.model;
+package br.ufrn.imd.lp2.model;
 
 public class LevenshteinDistanceStrategy {
 	/**

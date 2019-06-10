@@ -1,4 +1,4 @@
-package src.br.ufrn.imd.lp2.controller;
+package br.ufrn.imd.lp2.controller;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -6,7 +6,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import src.br.ufrn.imd.lp2.model.Quote;
+import br.ufrn.imd.lp2.model.Quote;
 
 public class FileReaderController {
 	String filepath;

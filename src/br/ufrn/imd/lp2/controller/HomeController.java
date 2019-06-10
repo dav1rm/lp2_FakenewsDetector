@@ -1,4 +1,4 @@
-package src.br.ufrn.imd.lp2.controller;
+package br.ufrn.imd.lp2.controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;

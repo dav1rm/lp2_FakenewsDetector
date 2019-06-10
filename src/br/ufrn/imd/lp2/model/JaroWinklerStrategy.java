@@ -1,4 +1,4 @@
-package src.br.ufrn.imd.lp2.model;
+package br.ufrn.imd.lp2.model;
 
 public class JaroWinklerStrategy extends JaroStrategy {
 	final double DEFAULT_SCALING_FACTOR = 0.1; // This is the default scaling factor Winkler used.
