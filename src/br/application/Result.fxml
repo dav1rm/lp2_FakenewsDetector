@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="500.0" prefWidth="751.0" style="-fx-background-color: linear-gradient(to bottom, rgba(38,42,173,1) 0%, rgba(109,29,141,1) 100%);;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrn.imd.lp2.controller.HomeController">
+   <children>
+      <ImageView fitHeight="171.0" fitWidth="271.0" layoutX="390.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../assets/a189cceb40eec412998b36ccd75b3a3b.png" />
+         </image>
+      </ImageView>
+      <Text fx:id="baloonText" layoutX="420.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Oh não! Isso é mentira do caixão. Sua notícia é 95% falsa." textAlignment="CENTER" wrappingWidth="212.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+            <Text fx:id="content" fill="WHITE" layoutX="53.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&quot;As experiências acumuladas demonstram que a percepção das dificuldades oferece uma interessante oportunidade para verificação das diversas correntes de pensamento.&quot;" wrappingWidth="431.0">
+         <font>
+            <Font size="12.0" />
+         </font></Text>
+      <Button fx:id="goBack" layoutX="279.0" layoutY="431.0" mnemonicParsing="false" onAction="#handleSubmit" prefHeight="43.0" prefWidth="193.0" style="-fx-background-color: linear-gradient(to top, yellow, facb1e  75%);" text="Voltar" textAlignment="CENTER">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <ImageView fx:id="character" fitHeight="284.0" fitWidth="200.0" layoutX="497.0" layoutY="170.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../assets/akinator2.png" />
+         </image>
+      </ImageView>
+      <Text fx:id="fakenews" fill="WHITE" layoutX="53.0" layoutY="311.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&quot;As experiências acumuladas demonstram que a percepção das dificuldades oferece uma interessante oportunidade para verificação das diversas correntes de pensamento.&quot;" wrappingWidth="431.0">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="53.0" layoutY="173.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sua notícia:">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="53.0" layoutY="291.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fakenews existente:">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
