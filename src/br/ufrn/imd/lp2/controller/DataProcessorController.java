@@ -16,6 +16,10 @@ public class DataProcessorController {
 	DataProcessorController(int min_char) {
 		this.MIN_CHARACTERS = min_char;
 	}
+	
+	/*
+	 * Chama todos as funcoes que irao tratar a string content
+	 * */
 	public String stardardizeQuote(String content) 
 	{
 		content = this.removeUnqualifiedWords(content);
@@ -24,6 +28,11 @@ public class DataProcessorController {
 		content = this.alphabeticalSort(content);
 		return content;
 	}
+	
+	/*
+	 * Remove todos as palavras que tem a length menor que o MIN_CHARACTERS
+	 * Remove todas as pontuações
+	 * */
 	public String removeUnqualifiedWords(String content) {
 		// Removes punctuation
 		String str = content.replaceAll("\\p{P}", "");
@@ -40,12 +49,20 @@ public class DataProcessorController {
 		return builder.toString().trim();
 	}
 
+	/*
+	 * Remove todos os caracteres especiais como números, !@#$% entre outros
+	 * e retorna a string alterada e em letras minúsculas
+	 * */
 	public String removeSpecialCharacters(String content) {
 		content = Normalizer.normalize(content, Normalizer.Form.NFD).replaceAll("[^a-zA-Z\\s]", "");
 
 		return content.toLowerCase();
 	}
-
+	
+	/*
+	 * Remove todos as palavras que estão repitidas em content
+	 * e retorna uma string com palavras únicas
+	 * */
 	public String removeRepeatedWords(String content) {
 		String[] splitedArray = content.split(" ");
 
@@ -63,6 +80,10 @@ public class DataProcessorController {
 		return builder.toString().trim();
 	}
 
+	/*
+	 * Ordena alfabeticamente as palavras em content,
+	 * e retorna a string alterada
+	 * */
 	public String alphabeticalSort(String content) {
 		String[] splitedArray = content.split(" ");
 		Arrays.sort(splitedArray);
@@ -75,7 +96,10 @@ public class DataProcessorController {
 
 		return builder.toString().trim();
 	}
-
+	
+	/*
+	 * Gera um hash unico a partir do texto recebido, usando a funcao SHA-1
+	 * */
 	public String generateHash(String content) {
 		String sha1 = "";
 
