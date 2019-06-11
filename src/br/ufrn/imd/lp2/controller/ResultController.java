@@ -76,11 +76,6 @@ public class ResultController implements Initializable{
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		System.out.println("anh");
-		// TODO Auto-generated method stub
-		//this.baloonText.setText(message);
-    	//this.content.setText(content_);
-        //this.character.setImage(image);
 		
 	}
 }

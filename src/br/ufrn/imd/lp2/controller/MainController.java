@@ -2,6 +2,7 @@ package br.ufrn.imd.lp2.controller;
 
 import java.util.ArrayList;
 
+import br.ufrn.imd.lp2.model.AnalysisResult;
 import br.ufrn.imd.lp2.model.ConsineSimilarity;
 import br.ufrn.imd.lp2.model.JaroWinklerStrategy;
 import br.ufrn.imd.lp2.model.LevenshteinDistanceStrategy;
@@ -29,11 +30,12 @@ public class MainController {
 		return DS;
 	}
 	
-	public double analyze(Boolean webscraping, String content, String similarityAlgorithm) 
+	public AnalysisResult analyze(Boolean webscraping, String content, String similarityAlgorithm) 
 	{
 		LevenshteinDistanceStrategy LD = new LevenshteinDistanceStrategy();
 		
 		double percentage = 0;
+		AnalysisResult AR = null;
 		if(webscraping)
 		{
 			WebScrapingController WS = new WebScrapingController();
@@ -42,23 +44,30 @@ public class MainController {
 			String treatedText = "";
 			
 			for (String text : data) {
-				percentage = compare(text, LD, percentage);
+				AR = compare(text, LD, percentage);
+
+				percentage = AR.getAccuracy();
 			}
+
 		}else 
 		{
-			percentage = compare(content, LD, percentage);
+			AR = compare(content, LD, percentage);
 		}
-		
-		return percentage;
+		return AR;
 	}
-	public double compare(String content, LevenshteinDistanceStrategy LD, double percentage) 
+	public AnalysisResult compare(String content, LevenshteinDistanceStrategy LD, double percentage) 
 	{
+
+		AnalysisResult AR = new AnalysisResult();
 		String treatedText = DP.stardardizeQuote(content);
 		String hash = DP.generateHash(treatedText);
 		
 		// search by hash
 		if (DS.getByHash(hash) != null) {
-			return 1;
+			AR.setFakenews(content);
+			AR.setAccuracy(1);
+			AR.setContent(content);
+			return AR;
 		}
 		
 		// if not found, apply similarity analytises
@@ -69,6 +78,10 @@ public class MainController {
 				tmp = quote;
 			}
 		}
-		return percentage;
+		
+		AR.setFakenews(tmp.getContent());
+		AR.setAccuracy(percentage);
+		AR.setContent(content);
+		return AR;
 	}
 }

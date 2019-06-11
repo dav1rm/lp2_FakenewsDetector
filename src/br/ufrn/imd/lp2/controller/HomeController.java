@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import br.ufrn.imd.lp2.model.AnalysisResult;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -36,8 +37,8 @@ public class HomeController implements Initializable {
 	@FXML
 	private void handleSubmit(ActionEvent event) throws IOException {
 		System.out.println("Começando a análise");
-		Double analysisResult = null;
-		
+		//Double analysisResult = null;
+		AnalysisResult analysisResult = null;
 		
 		if(!url.getText().trim().isEmpty()) 
 		{
@@ -57,17 +58,17 @@ public class HomeController implements Initializable {
 		if(analysisResult != null) 
 		{
 			//SE O RESULTADO FOR MAIOR  QUE O PADRÃO CONFIGURADO PELO USUÁRIO, É FAKENEWS
-			if(analysisResult*100 > Double.parseDouble(percentage.getText())) 
+			if(analysisResult.getAccuracy()*100 > Double.parseDouble(percentage.getText())) 
 			{
-				System.out.println(analysisResult);
+				System.out.println(analysisResult.getAccuracy());
 				System.out.println("Sua notícia é Falsa.");
-				loadResult(true, analysisResult, url.getText(), "temporario");
+				loadResult(true, analysisResult.getAccuracy(), analysisResult.getContent(), "");
 			}else 
 			{
-				System.out.println(analysisResult);
+				System.out.println(analysisResult.getAccuracy());
 				System.out.println("Sua notícia é Verdadeira. ");
 
-				loadResult(false, analysisResult, textNew.getText(), "temporario");
+				loadResult(false, analysisResult.getAccuracy(), analysisResult.getContent(), analysisResult.getFakenews());
 			}
 			
 	        
