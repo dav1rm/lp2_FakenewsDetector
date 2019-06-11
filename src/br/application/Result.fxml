@@ -33,7 +33,7 @@
             <Image url="@../../../assets/akinator2.png" />
          </image>
       </ImageView>
-      <Text fx:id="fakenews" fill="WHITE" layoutX="53.0" layoutY="311.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&quot;As experiências acumuladas demonstram que a percepção das dificuldades oferece uma interessante oportunidade para verificação das diversas correntes de pensamento.&quot;" wrappingWidth="431.0">
+      <Text fx:id="fakenews" fill="WHITE" layoutX="53.0" layoutY="311.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" wrappingWidth="431.0">
          <font>
             <Font size="12.0" />
          </font>
@@ -43,7 +43,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="53.0" layoutY="291.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fakenews existente:">
+      <Text fx:id="fakenewsLabel" fill="WHITE" layoutX="53.0" layoutY="291.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fakenews existente:">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>

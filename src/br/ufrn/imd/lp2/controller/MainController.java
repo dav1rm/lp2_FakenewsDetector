@@ -69,7 +69,6 @@ public class MainController {
 				tmp = quote;
 			}
 		}
-
 		return percentage;
 	}
 }

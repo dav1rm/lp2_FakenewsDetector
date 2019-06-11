@@ -29,11 +29,14 @@ public class ResultController implements Initializable{
     private Text content;
     
     @FXML
+    private Text fakenewsLabel;
+    
+    @FXML
     private ImageView character;
    
     @FXML
     void handleSubmit(ActionEvent event) {
-
+    	goBack.getScene().getWindow().hide();
     }
     
     public void setData(Boolean isFakenews, Double percentage, String cnt, String fk) throws FileNotFoundException 
@@ -43,12 +46,13 @@ public class ResultController implements Initializable{
     	if(isFakenews) 
     	{
     		message = "Oh não! Isso é mentira do caixão. Sua notícia é "+percentage+" falsa";
+    		fakenewsLabel.setText("Fakenews Existente");
     		fakenews.setText(fk);
             image = new Image(new FileInputStream("assets/akinator2.png"));
     	}else 
     	{
     		message = "Aeeee! Não temos registros de sua notícia como falsa";
-    		
+    		fakenewsLabel.setText("");
             image = new Image(new FileInputStream("assets/akinator.png"));
     	}
 

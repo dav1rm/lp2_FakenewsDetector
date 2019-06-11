@@ -61,8 +61,7 @@ public class HomeController implements Initializable {
 			{
 				System.out.println(analysisResult);
 				System.out.println("Sua notícia é Falsa.");
-
-				loadResult(true, analysisResult, textNew.getText(), "temporario");
+				loadResult(true, analysisResult, url.getText(), "temporario");
 			}else 
 			{
 				System.out.println(analysisResult);
