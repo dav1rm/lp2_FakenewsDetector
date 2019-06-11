@@ -7,9 +7,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="500.0" prefWidth="751.0" style="-fx-background-color: linear-gradient(to bottom, rgba(38,42,173,1) 0%, rgba(109,29,141,1) 100%);;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrn.imd.lp2.controller.HomeController">
+<AnchorPane prefHeight="500.0" prefWidth="751.0" style="-fx-background-color: linear-gradient(to bottom, rgba(38,42,173,1) 0%, rgba(109,29,141,1) 100%);;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrn.imd.lp2.controller.ResultController">
    <children>
-      <ImageView fitHeight="171.0" fitWidth="271.0" layoutX="390.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="character" fitHeight="171.0" fitWidth="271.0" layoutX="390.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../assets/a189cceb40eec412998b36ccd75b3a3b.png" />
          </image>
