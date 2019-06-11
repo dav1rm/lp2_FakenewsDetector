@@ -14,7 +14,7 @@
             <Image url="@../../../assets/a189cceb40eec412998b36ccd75b3a3b.png" />
          </image>
       </ImageView>
-      <Text layoutX="424.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Informe uma notícia e eu adivinharei se ela é verdade..." textAlignment="CENTER" wrappingWidth="212.0">
+      <Text fx:id="balloonText" layoutX="424.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Informe uma notícia e eu adivinharei se ela é verdade..." textAlignment="CENTER" wrappingWidth="212.0">
          <font>
             <Font size="20.0" />
          </font>

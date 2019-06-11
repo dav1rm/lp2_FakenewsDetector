@@ -69,7 +69,7 @@ public class ResultController implements Initializable {
 		} else {
 			message = "Aeeee! Não temos registros de sua notícia como falsa";
 			fakenewsLabel.setText("");
-			image = new Image(new FileInputStream("assets/akinator.png"));
+			image = new Image(new FileInputStream("assets/akinator3.png"));
 		}
 
 		baloonText.setText(message);

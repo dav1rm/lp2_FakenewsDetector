@@ -32,19 +32,21 @@ public class HomeController implements Initializable {
 	private Button verifyButton;
 	@FXML
 	private TextArea textNew;
-
+    @FXML
+    private Text balloonText;
+    
 	private MainController MC;
 
 	@FXML
 	private void handleSubmit(ActionEvent event) throws IOException {
 		System.out.println("Começando a análise...");
-		// Double analysisResult = null;
+		balloonText.setText("Aguarde! Estou analisando...");
+		
 		AnalysisResult analysisResult = null;
-
+		
 		if (!url.getText().trim().isEmpty()) {
 			// SE O USU�RIO TIVER DIGITADO URL, IREMOS REALIZAR WEBSCRAPING
 			analysisResult = this.MC.analyze(true, url.getText(), "teste");
-
 		} else {
 			if (!textNew.getText().trim().isEmpty()) {
 				// SE O USU�RIO TIVER DIGITADO TEXTO, IREMOS ANALISAR SOMENTE PARA AQUELE TEXTO
@@ -56,21 +58,20 @@ public class HomeController implements Initializable {
 		if (analysisResult != null) {
 			// SE O RESULTADO FOR MAIOR QUE O PADR�O CONFIGURADO PELO USU�RIO, � FAKENEWS
 			if (analysisResult.getAccuracy() * 100 > Double.parseDouble(percentage.getText())) {
-				System.out.println(analysisResult.getAccuracy());
-				System.out.println("Sua notícia é falsa.");
+//				System.out.println(analysisResult.getAccuracy());
+//				System.out.println("Sua notícia é falsa.");
 				Main.setDado(analysisResult);
 				loadResult(true, analysisResult.getAccuracy(), analysisResult.getContent(),
 						analysisResult.getFakenews());
 			} else {
-				System.out.println(analysisResult.getAccuracy());
-				System.out.println("Sua notícia é verdadeira");
+//				System.out.println(analysisResult.getAccuracy());
+//				System.out.println("Sua notícia é verdadeira");
 				Main.setDado(analysisResult);
 				loadResult(false, analysisResult.getAccuracy(), analysisResult.getContent(),
 						analysisResult.getFakenews());
 			}
-
 		} else {
-			System.out.println("Algo deu errado com a comparação");
+			balloonText.setText("Algo deu errado com a comparação");
 		}
 
 	}
