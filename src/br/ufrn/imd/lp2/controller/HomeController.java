@@ -40,18 +40,22 @@ public class HomeController implements Initializable {
 	@FXML
 	private void handleSubmit(ActionEvent event) throws IOException {
 		System.out.println("Começando a análise...");
-		balloonText.setText("Aguarde! Estou analisando...");
 		
 		AnalysisResult analysisResult = null;
-		
-		if (!url.getText().trim().isEmpty()) {
-			// SE O USU�RIO TIVER DIGITADO URL, IREMOS REALIZAR WEBSCRAPING
-			analysisResult = this.MC.analyze(true, url.getText(), "teste");
-		} else {
-			if (!textNew.getText().trim().isEmpty()) {
-				// SE O USU�RIO TIVER DIGITADO TEXTO, IREMOS ANALISAR SOMENTE PARA AQUELE TEXTO
-				analysisResult = this.MC.analyze(false, textNew.getText(), "teste");
+		try {
+			balloonText.setText("Aguarde! Estou analisando...");
+			if (!url.getText().trim().isEmpty()) {
+				// SE O USU�RIO TIVER DIGITADO URL, IREMOS REALIZAR WEBSCRAPING
+				analysisResult = this.MC.analyze(true, url.getText(), "teste");
+			} else {
+				if (!textNew.getText().trim().isEmpty()) {
+					// SE O USU�RIO TIVER DIGITADO TEXTO, IREMOS ANALISAR SOMENTE PARA AQUELE TEXTO
+					analysisResult = this.MC.analyze(false, textNew.getText(), "teste");
+				}
 			}
+			
+		} catch (Exception e) {
+			balloonText.setText("Epa! Digite uma url válida");
 		}
 
 		// CASO TENHA SIDO SETADO VALOR DE RESULTADO
@@ -71,7 +75,7 @@ public class HomeController implements Initializable {
 						analysisResult.getFakenews());
 			}
 		} else {
-			balloonText.setText("Algo deu errado com a comparação");
+			balloonText.setText("Algo deu errado. Verifique os dados de entrada");
 		}
 
 	}

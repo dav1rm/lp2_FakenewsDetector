@@ -1,5 +1,6 @@
 package br.ufrn.imd.lp2.controller;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import br.ufrn.imd.lp2.model.AnalysisResult;
@@ -30,7 +31,7 @@ public class MainController {
 		return DS;
 	}
 
-	public AnalysisResult analyze(Boolean webscraping, String content, String similarityAlgorithm) {
+	public AnalysisResult analyze(Boolean webscraping, String content, String similarityAlgorithm) throws IOException {
 		LevenshteinDistanceStrategy LD = new LevenshteinDistanceStrategy();
 
 		double percentage = 0;
