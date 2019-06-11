@@ -7,8 +7,8 @@ import java.net.URL;
 import java.text.DecimalFormat;
 import java.util.ResourceBundle;
 
-import br.application.Main;
 import br.ufrn.imd.lp2.model.AnalysisResult;
+import br.ufrn.imd.lp2.view.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -45,7 +45,7 @@ public class ResultController implements Initializable {
 	@FXML
 	void handleSubmit(ActionEvent event) throws IOException {
 		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(getClass().getResource("/br/application/Home.fxml"));
+		loader.setLocation(getClass().getResource("/br/ufrn/imd/lp2/view/Home.fxml"));
 		loader.load();
 				
 		Parent p = loader.getRoot();

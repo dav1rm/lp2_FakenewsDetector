@@ -11,7 +11,7 @@
    <children>
       <ImageView fx:id="character" fitHeight="171.0" fitWidth="271.0" layoutX="390.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../assets/a189cceb40eec412998b36ccd75b3a3b.png" />
+            <Image url="@../../../../../../assets/a189cceb40eec412998b36ccd75b3a3b.png" />
          </image>
       </ImageView>
       <Text fx:id="baloonText" layoutX="420.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Oh não! Isso é mentira do caixão. Sua notícia é 95% falsa." textAlignment="CENTER" wrappingWidth="212.0">
@@ -30,7 +30,7 @@
       </Button>
       <ImageView fx:id="character" fitHeight="284.0" fitWidth="200.0" layoutX="497.0" layoutY="170.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../assets/akinator2.png" />
+            <Image url="@../../../../../../assets/akinator2.png" />
          </image>
       </ImageView>
       <Text fx:id="fakenews" fill="WHITE" layoutX="53.0" layoutY="311.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" wrappingWidth="431.0">

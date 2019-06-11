@@ -11,7 +11,7 @@
    <children>
       <ImageView fitHeight="159.0" fitWidth="257.0" layoutX="401.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../assets/a189cceb40eec412998b36ccd75b3a3b.png" />
+            <Image url="@../../../../../../assets/a189cceb40eec412998b36ccd75b3a3b.png" />
          </image>
       </ImageView>
       <Text fx:id="balloonText" layoutX="424.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Informe uma notícia e eu adivinharei se ela é verdade..." textAlignment="CENTER" wrappingWidth="212.0">
@@ -37,7 +37,7 @@
       </Text>
       <ImageView fitHeight="293.0" fitWidth="199.0" layoutX="529.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../assets/akinator.png" />
+            <Image url="@../../../../../../assets/akinator.png" />
          </image>
       </ImageView>
       <Text fx:id="percentage1" fill="#eee1e1" layoutX="119.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\%" wrappingWidth="20.0">
@@ -47,7 +47,7 @@
       </Text>
       <ImageView fitHeight="125.0" fitWidth="237.0" layoutX="138.0" layoutY="-11.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../assets/fakinatorname2.png" />
+            <Image url="@../../../../../../assets/fakinatorname2.png" />
          </image>
       </ImageView>
    </children>

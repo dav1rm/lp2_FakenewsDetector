@@ -4,8 +4,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import br.application.Main;
 import br.ufrn.imd.lp2.model.AnalysisResult;
+import br.ufrn.imd.lp2.view.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -78,7 +78,7 @@ public class HomeController implements Initializable {
 
 	public void loadResult(Boolean isFakenews, Double percentage, String content, String fakenews) throws IOException {
 		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(getClass().getResource("/br/application/Result.fxml"));
+		loader.setLocation(getClass().getResource("/br/ufrn/imd/lp2/view/Result.fxml"));
 		loader.load();
 
 		ResultController controller = loader.getController();

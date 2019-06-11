@@ -1,4 +1,4 @@
-package br.application;
+package br.ufrn.imd.lp2.view;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
