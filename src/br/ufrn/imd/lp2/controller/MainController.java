@@ -1,5 +1,6 @@
 package br.ufrn.imd.lp2.controller;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -13,7 +14,7 @@ public class MainController {
 	private DataStorageController DS;
 	private DataProcessorController DP;
 
-	MainController() {
+	MainController() throws FileNotFoundException, IOException {
 		FileReaderController FR = new FileReaderController("assets/boatos.csv");
 
 		this.DP = new DataProcessorController(3);

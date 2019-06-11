@@ -14,18 +14,17 @@ public class FileReaderController {
 	ArrayList <Quote> quotes = new ArrayList<Quote>(); 
 	
 	
-	public FileReaderController(String filepath) {
+	public FileReaderController(String filepath) throws FileNotFoundException, IOException {
 		// TODO Auto-generated constructor stub
 		this.filepath = filepath;
 		// Lê o arquivo
-		try {
-			this.readFile();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		this.readFile();
 		
 	}
 	
+	/*
+	 * Para cada linha do arquivo no filepath, cria um novo objeto quote com os valores
+	 * da linha, caso a linha contenha todas as colunas texto, id, url e data*/
 	public void readFile() throws FileNotFoundException, IOException {
 		
 		try (BufferedReader br = new BufferedReader(new FileReader(this.filepath))) {

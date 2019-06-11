@@ -36,16 +36,21 @@ public class HomeController implements Initializable {
     private Text balloonText;
     
 	private MainController MC;
-
+	
+	/*
+	 * Função que chama a classe com os métodos de comparação das strings
+	 * que executa quando o usuário envia um dado válido
+	 * */
 	@FXML
 	private void handleSubmit(ActionEvent event) throws IOException {
-		System.out.println("ComeÃ§ando a anÃ¡lise...");
+		balloonText.setText("Deixe-me ponderar...");
 		
 		AnalysisResult analysisResult = null;
 		try {
-			balloonText.setText("Aguarde! Estou analisando...");
 			if (!url.getText().trim().isEmpty()) {
 				// SE O USUï¿½RIO TIVER DIGITADO URL, IREMOS REALIZAR WEBSCRAPING
+
+				balloonText.setText("Aguarde! Estou analisando...");
 				analysisResult = this.MC.analyze(true, url.getText(), "teste");
 			} else {
 				if (!textNew.getText().trim().isEmpty()) {
@@ -62,14 +67,10 @@ public class HomeController implements Initializable {
 		if (analysisResult != null) {
 			// SE O RESULTADO FOR MAIOR QUE O PADRï¿½O CONFIGURADO PELO USUï¿½RIO, ï¿½ FAKENEWS
 			if (analysisResult.getAccuracy() * 100 > Double.parseDouble(percentage.getText())) {
-//				System.out.println(analysisResult.getAccuracy());
-//				System.out.println("Sua notÃ­cia Ã© falsa.");
 				Main.setDado(analysisResult);
 				loadResult(true, analysisResult.getAccuracy(), analysisResult.getContent(),
 						analysisResult.getFakenews());
 			} else {
-//				System.out.println(analysisResult.getAccuracy());
-//				System.out.println("Sua notÃ­cia Ã© verdadeira");
 				Main.setDado(analysisResult);
 				loadResult(false, analysisResult.getAccuracy(), analysisResult.getContent(),
 						analysisResult.getFakenews());
@@ -79,7 +80,10 @@ public class HomeController implements Initializable {
 		}
 
 	}
-
+	
+	/*
+	 * Função responsável por chamar a segunda view, que exibe o resultado
+	 * */
 	public void loadResult(Boolean isFakenews, Double percentage, String content, String fakenews) throws IOException {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(getClass().getResource("/br/ufrn/imd/lp2/view/Result.fxml"));
@@ -95,10 +99,18 @@ public class HomeController implements Initializable {
 		verifyButton.getScene().getWindow().hide();
 		stage.showAndWait();
 	}
+	
+	// Quando a home inicializa, criamos um novo controller geral que armazenará as fakenews na datase em seu construtor
+	// Adicionamos também um observável que altera a taxa mínima de porcentagem conforme o usuário altera o slider
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		this.MC = new MainController();
+		try {
+			this.MC = new MainController();
+		} catch (IOException e) {
+			System.out.println("Erro ao ler o arquivo de texto!");
+			System.out.println(e.getMessage());
+		}
 
 		similarity.valueProperty().addListener((observable, oldValue, newValue) -> {
 			percentage.setText(Double.toString(newValue.intValue()));

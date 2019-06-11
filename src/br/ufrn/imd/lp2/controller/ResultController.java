@@ -12,7 +12,6 @@ import br.ufrn.imd.lp2.view.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -21,7 +20,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class ResultController implements Initializable {
+public class ResultController {
 
 	@FXML
 	private Button goBack;
@@ -43,6 +42,8 @@ public class ResultController implements Initializable {
 
 
 	@FXML
+	/**
+	 * Quando ativado, redireciona o stage ao cenário HOME.*/
 	void handleSubmit(ActionEvent event) throws IOException {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(getClass().getResource("/br/ufrn/imd/lp2/view/Home.fxml"));
@@ -57,6 +58,14 @@ public class ResultController implements Initializable {
         stage.show();
 	}
 
+	/**
+     * Configura os dados que exibem ao usuário a informação de resultado
+     *
+     * @param isFakenews true caso a resposta seja falsa
+     * @param percentage é a taxa de certeza que o texto é fakenews
+     * @param cnt é o texto da mensagem analisada
+     * @param fk é a fakenews encontrada que é compatível com o conteúdo
+     */
 	public void setData(Boolean isFakenews, Double percentage, String cnt, String fk) throws FileNotFoundException {
 		String message;
 		Image image;
@@ -75,11 +84,6 @@ public class ResultController implements Initializable {
 		baloonText.setText(message);
 		character.setImage(image);
 		content.setText(cnt);
-
-	}
-
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
 
 	}
 }
