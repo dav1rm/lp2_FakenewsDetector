@@ -80,6 +80,7 @@ public class HomeController implements Initializable {
 	
 	public void loadResult(Boolean isFakenews, Double percentage, String content, String fakenews) throws IOException 
 	{
+		
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/br/application/Result.fxml"));  
         Stage stage = new Stage();
         stage.initOwner(verifyButton.getScene().getWindow());
@@ -90,13 +91,10 @@ public class HomeController implements Initializable {
         ResultController controller = loader.<ResultController>getController();
 
         controller.setData(isFakenews, percentage, content, fakenews);
-        //ResultController controller = new ResultController();
-        //loader.setController(controller);
         
-        // showAndWait will block execution until the window closes...
+        verifyButton.getScene().getWindow().hide();
         stage.showAndWait();
         
-        ///text1.setText(controller.getText());
 	}
 	
 	@Override
