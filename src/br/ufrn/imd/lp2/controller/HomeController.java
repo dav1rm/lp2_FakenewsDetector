@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import br.application.Main;
 import br.ufrn.imd.lp2.model.AnalysisResult;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -24,84 +25,76 @@ public class HomeController implements Initializable {
 	@FXML
 	private Text percentage;
 	@FXML
-	private Slider similarity ;
+	private Slider similarity;
 	@FXML
 	private TextField url;
 	@FXML
 	private Button verifyButton;
 	@FXML
 	private TextArea textNew;
-	
+
 	private MainController MC;
-	
+
 	@FXML
 	private void handleSubmit(ActionEvent event) throws IOException {
-		System.out.println("ComeÁando a an·lise");
-		//Double analysisResult = null;
+		System.out.println("Come√ßando a an√°lise...");
+		// Double analysisResult = null;
 		AnalysisResult analysisResult = null;
-		
-		if(!url.getText().trim().isEmpty()) 
-		{
-			//SE O USU¡RIO TIVER DIGITADO URL, IREMOS REALIZAR WEBSCRAPING
+
+		if (!url.getText().trim().isEmpty()) {
+			// SE O USUÔøΩRIO TIVER DIGITADO URL, IREMOS REALIZAR WEBSCRAPING
 			analysisResult = this.MC.analyze(true, url.getText(), "teste");
-			
-		}else 
-		{
-			if(!textNew.getText().trim().isEmpty())
-			{
-				//SE O USU¡RIO TIVER DIGITADO TEXTO, IREMOS ANALISAR SOMENTE PARA AQUELE TEXTO
+
+		} else {
+			if (!textNew.getText().trim().isEmpty()) {
+				// SE O USUÔøΩRIO TIVER DIGITADO TEXTO, IREMOS ANALISAR SOMENTE PARA AQUELE TEXTO
 				analysisResult = this.MC.analyze(false, textNew.getText(), "teste");
 			}
 		}
-		
-		//CASO TENHA SIDO SETADO VALOR DE RESULTADO
-		if(analysisResult != null) 
-		{
-			//SE O RESULTADO FOR MAIOR  QUE O PADR√O CONFIGURADO PELO USU¡RIO, … FAKENEWS
-			if(analysisResult.getAccuracy()*100 > Double.parseDouble(percentage.getText())) 
-			{
-				System.out.println(analysisResult.getAccuracy());
-				System.out.println("Sua notÌcia È Falsa.");
-				loadResult(true, analysisResult.getAccuracy(), analysisResult.getContent(), "");
-			}else 
-			{
-				System.out.println(analysisResult.getAccuracy());
-				System.out.println("Sua notÌcia È Verdadeira. ");
 
-				loadResult(false, analysisResult.getAccuracy(), analysisResult.getContent(), analysisResult.getFakenews());
+		// CASO TENHA SIDO SETADO VALOR DE RESULTADO
+		if (analysisResult != null) {
+			// SE O RESULTADO FOR MAIOR QUE O PADRÔøΩO CONFIGURADO PELO USUÔøΩRIO, ÔøΩ FAKENEWS
+			if (analysisResult.getAccuracy() * 100 > Double.parseDouble(percentage.getText())) {
+				System.out.println(analysisResult.getAccuracy());
+				System.out.println("Sua not√≠cia √© falsa.");
+				Main.setDado(analysisResult);
+				loadResult(true, analysisResult.getAccuracy(), analysisResult.getContent(),
+						analysisResult.getFakenews());
+			} else {
+				System.out.println(analysisResult.getAccuracy());
+				System.out.println("Sua not√≠cia √© verdadeira");
+				Main.setDado(analysisResult);
+				loadResult(false, analysisResult.getAccuracy(), analysisResult.getContent(),
+						analysisResult.getFakenews());
 			}
-			
-	        
-		}else 
-		{
-			System.out.println("Algo deu errado com a comparaÁ„o");
+
+		} else {
+			System.out.println("Algo deu errado com a compara√ß√£o");
 		}
-		
+
 	}
-	
-	public void loadResult(Boolean isFakenews, Double percentage, String content, String fakenews) throws IOException 
-	{
+
+	public void loadResult(Boolean isFakenews, Double percentage, String content, String fakenews) throws IOException {
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(getClass().getResource("/br/application/Result.fxml"));
+		loader.load();
+
+		ResultController controller = loader.getController();
+		controller.setData(isFakenews, percentage, content, fakenews);
+
+		Parent p = loader.getRoot();
+		Stage stage = new Stage();
+		stage.setScene(new Scene(p));
 		
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("/br/application/Result.fxml"));  
-        Stage stage = new Stage();
-        stage.initOwner(verifyButton.getScene().getWindow());
-        stage.setScene(new Scene((Parent) loader.load()));
-
-       
-
-        ResultController controller = loader.<ResultController>getController();
-
-        controller.setData(isFakenews, percentage, content, fakenews);
-        
-        verifyButton.getScene().getWindow().hide();
-        stage.showAndWait();
-        
+		verifyButton.getScene().getWindow().hide();
+		stage.showAndWait();
 	}
-	
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
 		this.MC = new MainController();
+
 		similarity.valueProperty().addListener((observable, oldValue, newValue) -> {
 			percentage.setText(Double.toString(newValue.intValue()));
 		});

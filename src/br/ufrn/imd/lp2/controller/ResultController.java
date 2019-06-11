@@ -1,12 +1,14 @@
 package br.ufrn.imd.lp2.controller;
 
-
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
+import java.text.DecimalFormat;
 import java.util.ResourceBundle;
 
+import br.application.Main;
+import br.ufrn.imd.lp2.model.AnalysisResult;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,63 +21,65 @@ import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class ResultController implements Initializable{
+public class ResultController implements Initializable {
 
-    @FXML
-    private Button goBack;
+	@FXML
+	private Button goBack;
 
-    @FXML
-    private Text baloonText;
+	@FXML
+	private Text baloonText;
 
-    @FXML
-    private Text fakenews;
+	@FXML
+	private Text fakenews;
 
-    @FXML
-    private Text content;
-    
-    @FXML
-    private Text fakenewsLabel;
-    
-    @FXML
-    private ImageView character;
-   
-    @FXML
-    void handleSubmit(ActionEvent event) throws IOException {
-    	
-    	FXMLLoader loader = new FXMLLoader(getClass().getResource("/br/application/Home.fxml"));  
-        Stage stage = new Stage();
-        stage.initOwner(goBack.getScene().getWindow());
-        stage.setScene(new Scene((Parent) loader.load()));
+	@FXML
+	private Text content;
 
-    	goBack.getScene().getWindow().hide();
-        stage.showAndWait();
-    }
-    
-    public void setData(Boolean isFakenews, Double percentage, String cnt, String fk) throws FileNotFoundException 
-    {
-    	String message;
-    	Image image;
-    	if(isFakenews) 
-    	{
-    		message = "Oh n„o! Isso È mentira do caix„o. Sua notÌcia È "+percentage+" falsa";
-    		fakenewsLabel.setText("Fakenews Existente");
-    		fakenews.setText(fk);
-            image = new Image(new FileInputStream("assets/akinator2.png"));
-    	}else 
-    	{
-    		message = "Aeeee! N„o temos registros de sua notÌcia como falsa";
-    		fakenewsLabel.setText("");
-            image = new Image(new FileInputStream("assets/akinator.png"));
-    	}
+	@FXML
+	private Text fakenewsLabel;
+
+	@FXML
+	private ImageView character;
+
+
+	@FXML
+	void handleSubmit(ActionEvent event) throws IOException {
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(getClass().getResource("/br/application/Home.fxml"));
+		loader.load();
+				
+		Parent p = loader.getRoot();
+		Stage stage = new Stage();
+		stage.setScene(new Scene(p));
+		
+        goBack.getScene().getWindow().hide();
+
+        stage.show();
+	}
+
+	public void setData(Boolean isFakenews, Double percentage, String cnt, String fk) throws FileNotFoundException {
+		String message;
+		Image image;
+		if (isFakenews) {
+			String resultado = String.format("%.1f", percentage*100);
+			message = "Oh n√£o! Isso √© mentira do caix√£o. Sua not√≠cia √© " + resultado + "% falsa";
+			fakenewsLabel.setText("Fakenews Existente");
+			fakenews.setText(fk);
+			image = new Image(new FileInputStream("assets/akinator2.png"));
+		} else {
+			message = "Aeeee! N√£o temos registros de sua not√≠cia como falsa";
+			fakenewsLabel.setText("");
+			image = new Image(new FileInputStream("assets/akinator.png"));
+		}
 
 		baloonText.setText(message);
-        character.setImage(image);
-    	content.setText(cnt);
+		character.setImage(image);
+		content.setText(cnt);
 
-    }
+	}
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		
+
 	}
 }
